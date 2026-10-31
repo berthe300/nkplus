@@ -55,16 +55,35 @@ animations.
 3. **Contact** : remplacer `contact@nkplus.app` dans les trois pages.
 4. **Mentions légales** : compléter l'éditeur, l'hébergeur, la conservation des
    données et faire valider par un juriste (APDP au Mali).
-5. **APK** : remplacer `assets/downloads/NK-Plus-v1.0.1.apk` par la nouvelle
-   version et mettre à jour le nom/la taille dans `index.html`.
+5. **APK** : joindre la nouvelle version à une release GitHub, puis mettre à
+   jour le lien de téléchargement, le nom et la taille dans `index.html`.
 6. **Tarifs** : les offres ne sont pas affichées sur le site ; les ajouter si
    elles sont définitivement fixées.
 7. **Polices** : le site charge Inter depuis Google Fonts. Pour une
    confidentialité maximale, héberger la police localement.
 
-## Déploiement
+## Déploiement actuel
 
-Le site est 100 % statique. Il peut être publié sur :
+- **Site en ligne** : <https://berthe300.github.io/nkplus/>
+- **Dépôt** : <https://github.com/berthe300/nkplus>
+- **APK 1.0.1** : <https://github.com/berthe300/nkplus/releases/tag/v1.0.1>
+- Hébergement : **GitHub Pages** (branche `main`, racine du dépôt).
+
+Pour mettre à jour le site :
+
+```bash
+git add -A
+git commit -m "Mise à jour du site"
+git push origin main
+```
+
+GitHub Pages reconstruit automatiquement le site. L'APK n'est pas stocké dans le
+dépôt : il est joint à une **release GitHub** (les fichiers exécutables sont
+refusés par l'offre gratuite de Firebase Hosting).
+
+## Autres hébergeurs
+
+Le site est 100 % statique. Il peut aussi être publié sur :
 
 - **Netlify** : glisser-déposer le dossier ;
 - **Vercel** : importer le dossier comme projet statique ;
