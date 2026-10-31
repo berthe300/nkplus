@@ -1,0 +1,7 @@
+# Le binaire APK est distribué via une release GitHub, pas dans le dépôt.
+assets/downloads/*.apk
+
+# Configuration Firebase (le site est publié sur GitHub Pages).
+.firebaserc
+firebase.json
+.firebase/

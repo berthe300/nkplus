@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comment ça marche — NK+</title>
+  <meta name="description" content="De l'installation à la prise en charge : découvrez comment NK+ prévient vos proches, partage votre position, votre itinéraire et votre carnet de santé.">
+  <meta name="theme-color" content="#E30613">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/logo-192.png">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Comment ça marche — NK+">
+  <meta property="og:description" content="Le parcours complet d'une alerte NK+ : réseau de confiance, position, itinéraire, carnet de santé et prise en charge.">
+  <meta property="og:image" content="assets/img/og-cover.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H14a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h5.5"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6M12 2v3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></symbol>
+    <symbol id="i-chevron-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="4"/></symbol>
+  </svg>
+
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="NK+ — accueil">
+        <img src="assets/img/logo-mark.png" alt="" width="46" height="46">
+        <span class="brand-name">NK+</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Navigation principale">
+        <a href="index.html#fonctionnalites">Fonctionnalités</a>
+        <a href="comment-ca-marche.html" class="is-active" aria-current="page">Comment ça marche</a>
+        <a href="index.html#securite">Sécurité</a>
+        <a href="index.html#faq">FAQ</a>
+        <a class="btn btn-primary btn-sm" href="index.html#telecharger">Télécharger</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a><span>/</span><span>Comment ça marche</span>
+        </nav>
+        <p class="eyebrow"><span class="dot"></span> Le guide NK+</p>
+        <h1>Comment ça marche ?</h1>
+        <p>De l'installation à la prise en charge, voici le parcours complet d'une alerte : ce que vous faites, ce que vos proches reçoivent, et ce qui se passe ensuite.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="step-row" id="telecharger-app">
+          <div class="step-row-copy reveal">
+            <span class="step-number">01</span>
+            <h2>Téléchargez et créez votre compte</h2>
+            <p>Installez NK+ sur votre téléphone Android, puis créez votre compte avec votre numéro. Votre profil sert à ce que vos proches sachent qui alerte.</p>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Installation en quelques minutes</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Numéro de téléphone enregistré</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Profil et photo facultatifs</li>
+            </ul>
+          </div>
+          <div class="step-row-visual reveal">
+            <div class="visual-card">
+              <div class="form-demo">
+                <h3>Créer mon compte</h3>
+                <p>Vos proches sauront qui appeler.</p>
+                <div class="demo-field"><svg aria-hidden="true"><use href="#i-mail"></use></svg>Email</div>
+                <div class="demo-field"><svg aria-hidden="true"><use href="#i-lock"></use></svg>Mot de passe</div>
+                <div class="demo-field"><svg aria-hidden="true"><use href="#i-phone"></use></svg>+226 00 00 00 00</div>
+                <div class="demo-submit">Créer mon compte</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-row" id="reseau">
+          <div class="step-row-copy reveal">
+            <span class="step-number">02</span>
+            <h2>Construisez votre réseau de confiance</h2>
+            <p>Invitez les personnes qui doivent être prévenues : famille, amis, collègues. Chacune reçoit une invitation et doit accepter. Le lien est réciproque.</p>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Invitation par numéro de téléphone</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Acceptation obligatoire de l'autre personne</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Vous pouvez retirer un proche à tout moment</li>
+            </ul>
+          </div>
+          <div class="step-row-visual reveal">
+            <div class="visual-card">
+              <div class="invite-card">
+                <h3>Demande de contact</h3>
+                <p><strong>Ibrahim B.</strong> souhaite pouvoir vous alerter en cas d'urgence.</p>
+                <div class="invite-actions">
+                  <span class="decline">Décliner</span>
+                  <span class="accept">Accepter</span>
+                </div>
+                <p style="margin-top:12px;font-size:.75rem">Le lien ne sera actif qu'après votre accord.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-row" id="alerte">
+          <div class="step-row-copy reveal">
+            <span class="step-number">03</span>
+            <h2>Envoyez une alerte en un geste</h2>
+            <p>En cas d'urgence, appuyez sur le bouton d'alerte. Choisissez le type d'urgence, ajoutez un message si vous le pouvez, et envoyez.</p>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Type d'urgence : agression, accident, malaise…</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Position GPS jointe automatiquement</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Photo ou vidéo possible en complément</li>
+            </ul>
+          </div>
+          <div class="step-row-visual reveal">
+            <div class="visual-card">
+              <div class="mini-phone">
+                <div class="mini-phone-screen">
+                  <div class="row"><span>NK+</span><span class="muted">En ligne</span></div>
+                  <div class="big-sos">SOS</div>
+                  <div class="bubble" style="text-align:center"><strong>Alerte prête</strong><span>Vos proches seront prévenus</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-row" id="recevoir">
+          <div class="step-row-copy reveal">
+            <span class="step-number">04</span>
+            <h2>Vos proches reçoivent et agissent</h2>
+            <p>Leur téléphone pulse, vibre et flashe. Ils ouvrent la notification, voient votre position et lancent l'itinéraire. Ils peuvent signaler qu'ils arrivent.</p>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Alarme visuelle, vibration et flash</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Carte et itinéraire routier vers vous</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Prise en charge : vous savez qu'ils viennent</li>
+            </ul>
+          </div>
+          <div class="step-row-visual reveal">
+            <div class="route-card">
+              <div class="route-map" style="height:230px">
+                <svg viewBox="0 0 520 290" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M60 235C130 210 120 150 200 135s110-18 150-52 64-38 96-42" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+                  <path d="M60 235C130 210 120 150 200 135s110-18 150-52 64-38 96-42" stroke="#E30613" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+                <span class="pin start">M</span>
+                <span class="pin end">A</span>
+              </div>
+              <div class="route-panel">
+                <span class="route-live"><i></i> Alerte reçue</span>
+                <h3>Awa a besoin d'aide</h3>
+                <ul>
+                  <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Position transmise</li>
+                  <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Itinéraire calculé</li>
+                </ul>
+                <div class="route-eta"><strong>12 min</strong><span>jusqu'à Awa (exemple)</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-row" id="suivi">
+          <div class="step-row-copy reveal">
+            <span class="step-number">05</span>
+            <h2>Le mode suivi</h2>
+            <p>Vous partez courir, randonner ou rentrez tard ? Activez le suivi et choisissez l'heure à laquelle vous pensez être rentré. Sans désactivation, l'alerte part automatiquement.</p>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Compte à rebours personnalisé</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Positions GPS enregistrées pendant le trajet</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Vos proches consultent l'historique si l'alerte part</li>
+            </ul>
+          </div>
+          <div class="step-row-visual reveal">
+            <div class="visual-card">
+              <div class="timer-demo">
+                <span class="label">Mode suivi actif</span>
+                <div class="time">45:00</div>
+                <p>Temps restant avant alerte automatique</p>
+                <div class="timer-button">Je suis rentré — arrêter</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-row" id="sante">
+          <div class="step-row-copy reveal">
+            <span class="step-number">06</span>
+            <h2>Le carnet de santé</h2>
+            <p>Renseignez votre groupe sanguin, vos allergies, vos traitements et votre médecin. Ces informations accompagnent l'alerte : vos proches savent à quoi s'attendre avant d'arriver.</p>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Groupe sanguin et allergies</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Traitements et maladies chroniques</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Contact médical et notes utiles</li>
+            </ul>
+            <div class="note-box">Seules les personnes qui reçoivent votre alerte voient le carnet transmis. Vous pouvez le mettre à jour à tout moment.</div>
+          </div>
+          <div class="step-row-visual reveal">
+            <div class="visual-card">
+              <div class="health-demo">
+                <div class="head">
+                  <span class="blood">O+</span>
+                  <div><strong>Carnet de santé</strong><span>Transmis avec l'alerte</span></div>
+                </div>
+                <div class="line"><span>Groupe sanguin</span><span>O+</span></div>
+                <div class="line"><span>Allergies</span><span>Pénicilline</span></div>
+                <div class="line"><span>Traitement</span><span>Aucun</span></div>
+                <div class="line"><span>Médecin</span><span>Dr Traoré</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-row" id="signalement">
+          <div class="step-row-copy reveal">
+            <span class="step-number">07</span>
+            <h2>Le signalement</h2>
+            <p>Un incident, un dangers sur la voie publique, un problème à signaler ? Envoyez un signalement géolocalisé avec une photo, une vidéo ou un texte à un professionnel.</p>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Photo, vidéo ou message</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>Position et horodatage</li>
+              <li><svg aria-hidden="true"><use href="#i-check"></use></svg>N'alerte pas vos proches : c'est un canal distinct</li>
+            </ul>
+          </div>
+          <div class="step-row-visual reveal">
+            <div class="visual-card">
+              <div class="report-demo">
+                <div class="photo"></div>
+                <h3>Signalement géolocalisé</h3>
+                <p>Route bloquée, éclairage défaillant, incident…</p>
+                <div class="chips"><span class="chip">Photo</span><span class="chip">Position</span><span class="chip">Professionnel</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span class="dot"></span> En un coup d'œil</p>
+          <h2>Ce que vos proches reçoivent.</h2>
+          <p>Une alerte complète, lisible même par quelqu'un qui n'a pas l'application.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal">
+            <div class="card-icon"><svg aria-hidden="true"><use href="#i-bell"></use></svg></div>
+            <h3>La notification</h3>
+            <p>Le nom, le type d'urgence et l'heure. L'alarme attire l'attention même si le téléphone est en silencieux (selon les réglages).</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon"><svg aria-hidden="true"><use href="#i-map-pin"></use></svg></div>
+            <h3>La position</h3>
+            <p>Les coordonnées GPS et l'adresse approximative, sur une carte OpenStreetMap.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon"><svg aria-hidden="true"><use href="#i-route"></use></svg></div>
+            <h3>L'itinéraire</h3>
+            <p>Le trajet routier jusqu'à vous, avec la distance et le temps estimé.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon"><svg aria-hidden="true"><use href="#i-heart"></use></svg></div>
+            <h3>Le carnet de santé</h3>
+            <p>Les informations que vous avez accepté de transmettre, pour aider les secours.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon"><svg aria-hidden="true"><use href="#i-users"></use></svg></div>
+            <h3>La prise en charge</h3>
+            <p>Un bouton pour dire « j'arrive ». Vous savez que quelqu'un vient.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon"><svg aria-hidden="true"><use href="#i-shield"></use></svg></div>
+            <h3>La confidentialité</h3>
+            <p>Seuls les proches qui ont accepté reçoivent l'alerte. Pas de diffusion publique.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span class="dot"></span> Transparence</p>
+          <h2>Ce que NK+ ne fait pas.</h2>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal">
+            <h3>Remplacer les secours</h3>
+            <p>NK+ est un complément. En cas de danger immédiat, appelez les services d'urgence compétents.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Vous surveiller en permanence</h3>
+            <p>Pas de suivi continu imposé. La position n'est partagée que pendant une alerte ou un mode suivi activé.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Vendre vos données</h3>
+            <p>Aucune revente, aucune publicité ciblée. Vos données servent uniquement à faire fonctionner le service.</p>
+          </article>
+        </div>
+        <div style="text-align:center;margin-top:38px" class="reveal">
+          <a class="btn btn-primary" href="index.html#telecharger"><svg aria-hidden="true"><use href="#i-download"></use></svg>Télécharger NK+</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/img/logo-white.png" alt="NK+" width="76" height="76" loading="lazy">
+          <p>L'alerte d'urgence qui relie vos proches, simplement. Conçu au Mali, pensé pour l'Afrique de l'Ouest.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Produit</h4>
+          <a href="index.html#fonctionnalites">Fonctionnalités</a>
+          <a href="comment-ca-marche.html">Comment ça marche</a>
+          <a href="index.html#securite">Sécurité</a>
+          <a href="index.html#telecharger">Télécharger</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <a href="index.html#faq">FAQ</a>
+          <a href="#recevoir">Recevoir une alerte</a>
+          <a href="#suivi">Mode suivi</a>
+          <a href="#sante">Carnet de santé</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:contact@nkplus.app">contact@nkplus.app</a>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#donnees">Données personnelles</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> NK+. Tous droits réservés.</span>
+        <span>NK+ ne remplace pas les services d'urgence.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Retour en haut">
+    <svg width="20" height="20" aria-hidden="true"><use href="#i-chevron-up"></use></svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
